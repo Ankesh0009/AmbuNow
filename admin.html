@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AmbuNow Admin Login | Driver & Admin Panel</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css" />
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <style>
+    .glass {
+      backdrop-filter: blur(16px);
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    }
+    .active-tab {
+      @apply bg-red-600 text-white font-semibold;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-br from-red-50 to-white min-h-screen flex items-center justify-center font-sans text-gray-800">
+
+  <div class="w-full max-w-md p-8 glass rounded-2xl" data-aos="zoom-in">
+    <div class="text-center mb-6">
+      <h2 class="text-3xl font-bold text-red-600">AmbuNow</h2>
+      <p class="text-sm text-gray-600">Login or Register as Admin / Driver</p>
+    </div>
+
+    <!-- Tab Toggle -->
+    <div class="flex justify-center gap-2 mb-6">
+      <button onclick="switchTab('login')" id="loginTab" class="px-4 py-2 rounded-full bg-red-600 text-white">Login</button>
+      <button onclick="switchTab('register')" id="registerTab" class="px-4 py-2 rounded-full bg-gray-200">Register</button>
+    </div>
+
+    <!-- Login Form -->
+    <form id="loginForm" class="space-y-4">
+      <select class="w-full px-4 py-2 rounded-lg border border-gray-300" required>
+        <option disabled selected>Select Role</option>
+        <option value="admin">Admin</option>
+        <option value="driver">Driver</option>
+      </select>
+      <input type="email" placeholder="Email" required class="w-full px-4 py-2 rounded-lg border border-gray-300"/>
+      <input type="password" placeholder="Password" required class="w-full px-4 py-2 rounded-lg border border-gray-300"/>
+      <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition">
+        🔒 Login
+      </button>
+    </form>
+
+    <!-- Register Form (hidden initially) -->
+    <form id="registerForm" class="space-y-4 hidden mt-4">
+      <select class="w-full px-4 py-2 rounded-lg border border-gray-300" required>
+        <option disabled selected>Register As</option>
+        <option value="admin">Admin</option>
+        <option value="driver">Driver</option>
+      </select>
+      <input type="text" placeholder="Full Name" required class="w-full px-4 py-2 rounded-lg border border-gray-300"/>
+      <input type="email" placeholder="Email" required class="w-full px-4 py-2 rounded-lg border border-gray-300"/>
+      <input type="password" placeholder="Create Password" required class="w-full px-4 py-2 rounded-lg border border-gray-300"/>
+      <button type="submit" class="w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-700 transition">
+        📝 Register
+      </button>
+    </form>
+  </div>
+
+  <script>
+    AOS.init();
+
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
+    const loginTab = document.getElementById("loginTab");
+    const registerTab = document.getElementById("registerTab");
+
+    function switchTab(tab) {
+      if (tab === 'login') {
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+        loginTab.classList.add("bg-red-600", "text-white");
+        registerTab.classList.remove("bg-red-600", "text-white");
+        registerTab.classList.add("bg-gray-200");
+      } else {
+        loginForm.classList.add("hidden");
+        registerForm.classList.remove("hidden");
+        registerTab.classList.add("bg-red-600", "text-white");
+        loginTab.classList.remove("bg-red-600", "text-white");
+        loginTab.classList.add("bg-gray-200");
+      }
+    }
+  </script>
+</body>
+</html>

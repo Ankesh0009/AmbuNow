@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Ambulance - AmbuNow</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #f8fafc; /* bg-slate-50 */
+        }
+    </style>
+</head>
+<body class="font-sans">
+
+    <a href="tel:108" title="Call Emergency: 108" class="fixed bottom-6 right-6 bg-red-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:bg-red-700 transition-all duration-300 transform hover:scale-110 z-50">
+        <span class="text-xl font-bold">SOS</span>
+        <span class="sr-only">Emergency Call 108</span>
+    </a>
+
+    <nav class="bg-white/90 backdrop-blur-md shadow-sm sticky top-0 z-40">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="/" class="text-3xl font-bold text-gray-900">Ambu<span class="text-red-600">Now</span></a>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="/" class="text-gray-600 hover:text-red-600 transition-colors duration-300">Home</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 transition-colors duration-300">Track Ambulance</a>
+                    <a href="#" class="text-gray-600 hover:text-red-600 transition-colors duration-300">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="text-gray-600 focus:outline-none">
+                        <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="container mx-auto px-4 sm:px-6 py-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl md:text-5xl font-extrabold text-gray-900">Request an Ambulance</h1>
+                <p class="mt-3 text-lg text-gray-600">Fill the details below or call <strong class="text-red-600">108</strong> for immediate assistance.</p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-5 gap-10">
+
+                <div id="request-form-container" class="lg:col-span-3 bg-white p-8 rounded-2xl shadow-lg">
+                    <form id="ambulance-request-form" class="space-y-6">
+                        <div>
+                            <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Full Name</label>
+                            <input type="text" id="full-name" name="full-name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="Enter patient's full name">
+                        </div>
+                        
+                        <div>
+                            <label for="mobile-number" class="block text-sm font-medium text-gray-700 mb-1">Mobile Number</label>
+                            <input type="tel" id="mobile-number" name="mobile-number" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="Enter a 10-digit mobile number">
+                        </div>
+
+                        <div>
+                            <label for="emergency-type" class="block text-sm font-medium text-gray-700 mb-1">Emergency Type</label>
+                            <select id="emergency-type" name="emergency-type" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150">
+                                <option value="" disabled selected>Select the type of emergency...</option>
+                                <option value="cardiac">Cardiac Arrest</option>
+                                <option value="accident">Accident / Trauma</option>
+                                <option value="breathing">Breathing Difficulty</option>
+                                <option value="maternity">Maternity / Pregnancy</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Pickup Address</label>
+                            <div class="relative">
+                                <textarea id="address" name="address" rows="3" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="Enter detailed address or landmark..."></textarea>
+                                <button type="button" class="absolute top-2 right-2 text-xs bg-red-100 text-red-700 font-semibold py-1 px-2 rounded-md hover:bg-red-200">📍 Use My Live Location</button>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="notes" class="block text-sm font-medium text-gray-700 mb-1">Additional Notes (Optional)</label>
+                            <input type="text" id="notes" name="notes" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-red-500 focus:border-red-500 transition duration-150" placeholder="e.g., Patient is on the 2nd floor">
+                        </div>
+                        
+                        <div>
+                            <button type="submit" class="w-full bg-red-600 text-white font-bold text-lg py-3 px-6 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5">
+                                SUBMIT REQUEST
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="lg:col-span-2 h-80 lg:h-full bg-gray-200 rounded-2xl shadow-lg flex items-center justify-center">
+                    <div class="text-center p-4">
+                        <img src="https://placehold.co/600x800/e2e8f0/4a5568.png?text=Live+Map+View" alt="Map Placeholder" class="w-full h-full object-cover rounded-2xl"/>
+                        <p class="text-gray-600 mt-[-50px] bg-white/50 backdrop-blur-sm rounded-md p-2 font-semibold relative">Location will be updated here</p>
+                    </div>
+                </div>
+
+            </div>
+
+             <div id="confirmation-message" class="hidden max-w-lg mx-auto mt-10 bg-green-100 border-l-4 border-green-500 text-green-800 p-6 rounded-lg shadow-md text-center">
+                <h3 class="text-2xl font-bold">✅ Request Submitted!</h3>
+                <p class="mt-2">Help is on the way. Our team will contact you shortly on the provided mobile number. You can track your ambulance using the link sent via SMS.</p>
+            </div>
+
+        </div>
+    </main>
+    
+    <script>
+        // Fake form submission for demonstration
+        const form = document.getElementById('ambulance-request-form');
+        const formContainer = document.getElementById('request-form-container');
+        const confirmationMessage = document.getElementById('confirmation-message');
+
+        form.addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent actual form submission
+            
+            // Hide the form container
+            formContainer.style.display = 'none';
+
+            // Show the confirmation message
+            confirmationMessage.classList.remove('hidden');
+            
+            // Scroll to the confirmation message for better UX
+            confirmationMessage.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+</body>
+</html>
