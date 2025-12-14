@@ -1,0 +1,283 @@
+/* GLOBAL */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f2f4f7;
+}
+
+a { text-decoration: none; }
+
+/* LANDING PAGE */
+.landing {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #d32f2f;
+    color: white;
+}
+
+.hero {
+    text-align: center;
+}
+
+.hero img {
+    width: 120px;
+}
+
+.hero h1 {
+    font-size: 42px;
+    margin: 10px 0;
+}
+
+.hero-buttons {
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 20px;
+    margin: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.primary {
+    background: white;
+    color: #d32f2f;
+}
+
+.secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+
+/* HEADER */
+header {
+    background: #d32f2f;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* INFO BAR */
+.info-bar {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1000px;
+    margin: 15px auto;
+    background: #fff3e0;
+    padding: 10px;
+    border-left: 5px solid #d32f2f;
+}
+
+/* MAIN LAYOUT */
+.main {
+    display: flex;
+    gap: 20px;
+    max-width: 1000px;
+    margin: auto;
+    padding: 10px;
+}
+
+.left, .right {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+}
+
+button {
+    background: #d32f2f;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    height: 350px;
+    border: 0;
+    display: none;
+}
+
+/* CONTACT PAGE */
+.contact {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-box {
+    background: white;
+    padding: 30px;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.call {
+    background: #1976d2;
+    color: white;
+}
+
+.back {
+    display: block;
+    margin-top: 15px;
+    color: #555;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #eee;
+    margin-top: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+}
+
+/* LANDING ANIMATION : RIGHT → CENTER */
+.animation-container {
+    position: absolute;
+    width: 100%;
+    top: 38%;
+    overflow: hidden;
+}
+
+/* AMBULANCE + TEXT */
+.ambulance {
+    font-size: 110px;
+    position: relative;
+
+    left: 100%;                          /* Start off-screen right */
+    transform: translateX(0);
+
+    animation: moveAmbulance 2s ease-out forwards;
+
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+/* AMBU NOW TEXT (always visible) */
+.ambu-text {
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 18px;
+    color: white;
+}
+
+/* RIGHT → CENTER movement */
+@keyframes moveAmbulance {
+    from {
+        left: 100%;
+        transform: translateX(0);
+    }
+    to {
+        left: 50%;
+        transform: translateX(-50%);     /* TRUE CENTER */
+    }
+}
+
+/* Buttons below */
+.hero-content {
+    position: absolute;
+    top: 62%;
+    width: 100%;
+    text-align: center;
+}
+
+
+/* BACKGROUND VIDEO */
+.bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+}
+
+/* BLUR + DARK OVERLAY */
+.video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(6px);
+    background: rgba(0, 0, 0, 0.45);
+    z-index: -1;
+}
+
+/* LANDING PAGE BASE */
+.landing {
+    height: 100vh;
+    overflow: hidden;
+    color: white;
+}
+
+/* AMBULANCE ANIMATION (RIGHT → CENTER) */
+.animation-container {
+    position: absolute;
+    width: 100%;
+    top: 38%;
+    overflow: hidden;
+}
+
+.ambulance {
+    font-size: 110px;
+    position: relative;
+    left: 100%;
+    animation: moveAmbulance 3s ease-out forwards;
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.ambu-text {
+    font-size: 40px;
+    font-weight: bold;
+    margin-left: 18px;
+    color: white;
+}
+
+/* Move from RIGHT → CENTER */
+@keyframes moveAmbulance {
+    from {
+        left: 100%;
+        transform: translateX(0);
+    }
+    to {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+/* Buttons below animation */
+.hero-content {
+    position: absolute;
+    top: 62%;
+    width: 100%;
+    text-align: center;
+}
