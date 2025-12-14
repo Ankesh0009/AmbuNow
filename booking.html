@@ -1,3 +1,71 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Ambulance | AMBU NOW</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>🚑 Book Ambulance</h1>
+    <p>Fill patient details & share live location</p>
+</header>
+
+<div class="info-bar">
+    <p><b>🚨 Emergency:</b> 112</p>
+    <p><b>📞 Contact:</b> +91 6207394439</p>
+</div>
+
+<div class="main"> -->
+
+    <!-- LEFT -->
+    <!-- <div class="left">
+        <h2>Patient Details</h2>
+
+        <form id="bookingForm">
+            <input type="text" id="patientName" placeholder="Patient Name" required>
+            <input type="number" id="age" placeholder="Age" required>
+
+            <select id="gender" required>
+                <option value="">Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+            </select>
+
+            <input type="tel" id="phone" placeholder="Contact Number" required>
+            <input type="text" id="pickup" placeholder="Pickup Location" required>
+
+            <select id="ambulanceType" required>
+                <option value="">Ambulance Type</option>
+                <option>Basic Life Support</option>
+                <option>Advanced Life Support</option>
+                <option>ICU Ambulance</option>
+            </select>
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+
+        <div id="result"></div>
+    </div> -->
+
+    <!-- RIGHT -->
+    <!-- <div class="right">
+        <h2>Live Location</h2>
+        <button id="getLocation">📍 Detect My Location</button>
+        <p id="locationStatus"></p>
+        <iframe id="map"></iframe>
+    </div> -->
+
+<!-- </div>
+
+<footer>© 2025 AMBU NOW</footer>
+
+<script src="script.js"></script>
+</body>
+</html> -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,7 +103,7 @@
             </select>
 
             <input type="tel" id="phone" placeholder="Contact Number" required>
-            <input type="text" id="pickup" placeholder="Pickup Location (Auto-filled)" required>
+            <input type="text" id="pickup" placeholder="Pickup Location (Auto-detected)" required>
 
             <select id="ambulanceType" required>
                 <option value="">Ambulance Type</option>
@@ -53,9 +121,11 @@
     <!-- RIGHT -->
     <div class="right">
         <h2>Live Location</h2>
-        <button id="getLocation">📍 Detect My Location</button>
+
         <p id="locationStatus"></p>
         <iframe id="map"></iframe>
+
+        <p id="hospitalInfo"></p>
     </div>
 
 </div>
@@ -65,3 +135,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
